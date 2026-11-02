@@ -1,0 +1,10 @@
+{
+  "description": "A secure login experience for students and instructors, providing role-based access to the tools and resources they need.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
