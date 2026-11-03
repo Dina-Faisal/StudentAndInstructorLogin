@@ -2,28 +2,28 @@ import type {
   ButtonHTMLAttributes,
   InputHTMLAttributes,
   ReactNode,
-} from 'react'
+} from "react"
 
-type ButtonVariant = 'primary' | 'neutral' | 'subtle'
+type ButtonVariant = "primary" | "neutral" | "subtle"
 
 export function Button({
-  variant = 'primary',
-  size = 'medium',
+  variant = "primary",
+  size = "medium",
   iconStart,
   iconEnd,
-  className = '',
+  className = "",
   children,
   ...props
 }: ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant
-  size?: 'medium' | 'small'
+  size?: "medium" | "small"
   iconStart?: ReactNode
   iconEnd?: ReactNode
 }) {
   return (
     <button
       className={`ui-button ui-button-${variant} ${
-        size === 'small' ? 'ui-button-small' : ''
+        size === "small" ? "ui-button-small" : ""
       } ${className}`}
       {...props}
     >
@@ -37,10 +37,10 @@ export function Button({
 export function InputField({
   label,
   prefix,
-  className = '',
+  className = "",
   onChange,
   ...props
-}: Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'prefix'> & {
+}: Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "prefix"> & {
   label?: string
   prefix?: ReactNode
   onChange?: (value: string) => void
@@ -48,7 +48,9 @@ export function InputField({
   return (
     <label className={`flex flex-col gap-xs ${className}`}>
       {label ? (
-        <span className="text-label font-medium text-text-primary">{label}</span>
+        <span className="text-label font-medium text-text-primary">
+          {label}
+        </span>
       ) : null}
       <span className="ui-input-shell">
         {prefix}
@@ -92,7 +94,7 @@ export function RadioGroup({
   onChange,
   name,
 }: {
-  options: Array<{ value: string; label: string; description?: string }>
+  options: Array<{ value: string label: string description?: string }>
   value?: string
   onChange?: (value: string) => void
   name?: string
@@ -107,7 +109,7 @@ export function RadioGroup({
             key={option.value}
             type="button"
             className={`ui-role-option ${
-              active ? 'ui-role-option-active' : ''
+              active ? "ui-role-option-active" : ""
             }`}
             role="radio"
             aria-checked={active}
@@ -134,16 +136,16 @@ export function RadioGroup({
 export function SidebarButton({
   icon,
   active,
-  className = '',
+  className = "",
   ...props
-}: Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> & {
+}: Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> & {
   icon: ReactNode
   active?: boolean
 }) {
   return (
     <button
       className={`ui-sidebar-button ${
-        active ? 'ui-sidebar-button-active' : ''
+        active ? "ui-sidebar-button-active" : ""
       } ${className}`}
       {...props}
     >
@@ -173,20 +175,22 @@ export function SidebarNavigation({
           e
         </div>
         {children}
-        <div className="mt-auto flex flex-col items-center gap-md">{footer}</div>
+        <div className="mt-auto flex flex-col items-center gap-md">
+          {footer}
+        </div>
       </div>
     </aside>
   )
 }
 
 export function Avatar({
-  initials = 'U',
+  initials = "U",
   alt,
 }: {
-  type?: 'initial' | 'image'
+  type?: "initial" | "image"
   initials?: string
-  size?: 'small' | 'medium' | 'large'
-  shape?: 'circle' | 'square'
+  size?: "small" | "medium" | "large"
+  shape?: "circle" | "square"
   alt?: string
 }) {
   return (
